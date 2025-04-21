@@ -42,6 +42,15 @@ public class AuthController {
        User user = userService.loginRegisterByGoogleOAuth2(oAuth2AuthenticationToken);
        return ResponseEntity.status(HttpStatus.FOUND).location(URI.create("http://localhost:3000/home")).build();
     }
+    @GetMapping("/login/github")
+public void loginGithub(HttpServletResponse response) throws IOException {
+    response.sendRedirect("/oauth2/authorization/github");
+}
+    @GetMapping("/loginSuccessGithub")
+    public ResponseEntity<? > handleGithubSuccess(OAuth2AuthenticationToken oAuth2AuthenticationToken){
+        User user = userService.loginRegisterByGoogleOAuth2(oAuth2AuthenticationToken);
+        return ResponseEntity.status(HttpStatus.FOUND).location(URI.create("http://localhost:3000/home")).build();
+    }
     
     
 }
