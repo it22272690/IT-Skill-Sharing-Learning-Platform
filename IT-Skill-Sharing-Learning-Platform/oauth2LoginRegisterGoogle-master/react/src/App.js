@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Home from './components/Home';
 import Register from './components/Register';
-import UpdateResource from './components/UpdateResource';
+import CreateResource from './components/CreateResource';
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
           
           {/* Registration page */}
           <Route path="/register" element={<Register  />} />
-          <Route path="/resources" element={<UpdateResource />} />
+          <Route path="/resources" element={<CreateResource />} />
         </Routes>
       </div>
     </Router>
