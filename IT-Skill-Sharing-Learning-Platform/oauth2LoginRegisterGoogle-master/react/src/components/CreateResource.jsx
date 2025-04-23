@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateResource = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const CreateResource = () => {
     prerequisites: '',
     type: 'Course'
   });
+  const navigate = useNavigate();
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,8 +18,8 @@ const CreateResource = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post('/api/resources', formData)
-      .then(() => {
+    axios.post("http://localhost:5050/api/resources", formData)
+      .then(res => {
         alert('Resource created successfully!');
         setFormData({
           title: '',
@@ -26,6 +28,9 @@ const CreateResource = () => {
           prerequisites: '',
           type: 'Course'
         });
+        // Redirect to the detail page of the newly created resource
+        const newId = res.data.resourceId;
+        navigate(`/resources/${newId}`);
       })
       .catch(err => console.error(err));
   };

@@ -27,6 +27,11 @@ function Login() {
     }
   };
 
+  // Google OAuth2 login handler
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:5050/oauth2/authorization/google";
+  };
+
   return (
     <div className="auth-container">
       <h2>Login</h2>
@@ -47,10 +52,24 @@ function Login() {
           placeholder="Enter Password ..."
         />
 
-        <button type="submit">Login</button>
+        <button type="submit" className="auth-button">
+          Login
+        </button>
       </form>
 
-      <p>Don’t have an account? <Link to="/register">Register here</Link></p>
+      <div className="oauth-providers">
+        <button 
+          type="button" 
+          onClick={handleGoogleLogin}
+          className="google-auth-button"
+        >
+          Continue with Google
+        </button>
+      </div>
+
+      <p className="auth-switch">
+        Don’t have an account? <Link to="/register">Register here</Link>
+      </p>
     </div>
   );
 }

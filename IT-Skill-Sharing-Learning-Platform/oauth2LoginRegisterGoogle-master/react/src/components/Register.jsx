@@ -8,10 +8,10 @@ function Register() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Initialize the useNavigate hook
 
-  const googleLogin = async() => {
-    console.log("logging in with google")
-    window.location.href = 'http://localhost:5050/login/google';
-  };
+  // const googleLogin = async() => {
+  //   console.log("logging in with google")
+  //   window.location.href = 'http://localhost:5050/login/google';
+  // };
 
   
   const handleRegister = async (e) => {
@@ -43,7 +43,7 @@ function Register() {
       </form>
       <div className="google-login">
         <p>Or sign up with </p>
-        <button onClick={googleLogin}>Continue with Google</button>
+        {/* <button onClick={googleLogin}>Continue with Google</button> */}
         <p>Already have an account? <Link to="/login">Login here</Link></p>
       </div>
     </div>

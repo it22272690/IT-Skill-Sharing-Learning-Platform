@@ -5,7 +5,8 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Register from './components/Register';
 import CreateResource from './components/CreateResource';
-
+import ViewResources from './components/ViewResources';
+import UpdateResource from './components/UpdateResource';
 function App() {
 
   return (
@@ -22,7 +23,9 @@ function App() {
           
           {/* Registration page */}
           <Route path="/register" element={<Register  />} />
-          <Route path="/resources" element={<CreateResource />} />
+          <Route path="/create-resource" element={<CreateResource />} />
+          <Route path="/resources/:id" element={<ViewResources />} />
+          <Route path="/resources/update/:resourceId" element={<UpdateResource />} />
         </Routes>
       </div>
     </Router>

@@ -5,7 +5,7 @@ function Home() {
   const navigate = useNavigate();
 
   const goToResourceManagement = () => {
-    navigate('/resources');
+    navigate('/create-resource');
   };
 
   return (
